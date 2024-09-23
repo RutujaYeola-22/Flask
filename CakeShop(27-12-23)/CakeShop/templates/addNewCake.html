@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Add New Cake</h1>
+        <hr/>
+        <form method="post" enctype="multipart/form-data">
+        <table border="1">
+            <tr><td>Enter Cake Name</td>
+            <td><input type="text" name="cname" required/></td></tr>
+            <tr><td>Enter Cake Price</td>
+                <td><input type="number" name="price" required/></td></tr>
+            <tr><td>Enter Description</td>
+                    <td><input type="text" name="desc" required/></td></tr>
+            <tr><td>Upload Image</td>
+                    <td><input type="file" name="image_url" required/></td></tr>
+            <tr><td>Select Category</td>
+            <td><select name="cat">
+                {%for cat in cats%}
+                    <option value="{{cat[0]}}">{{cat[1]}}</option>
+                {%endfor%}
+                
+            </select></td></tr>
+        <tr><td>Enter Quantity</td>
+        <td><input type="number" name="qty" required /></td></tr>
+    
+            <tr><td><input type="submit" value="Add Cake"/></td>
+        <td></td></tr>
+        </table>
+    </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Show All Categories</h1>
+    <hr/>
+    <a href="/addCategory">Add New Category</a>
+    <table border="1">
+        <tr><th>Category Id</th><th>Category Name</th><th>Edit</th><th>Delete</th></tr>
+        {%for cat in cats%}
+        <tr>
+            <td>{{cat[0]}}</td>
+            <td>{{cat[1]}}</td>
+            <td><a href="/edit_cat/{{cat[0]}}">Edit</a></td>
+            <th><a href="/delete_cat/{{cat[0]}}">Delete</a></th>
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+</body>
+</html>

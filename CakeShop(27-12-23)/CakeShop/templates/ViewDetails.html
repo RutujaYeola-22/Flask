@@ -1,0 +1,31 @@
+{%extends "homepage.html"%}
+
+{%block content%}
+<h1>View Details</h1>
+<form method="post" action="/addToCart">
+<table class="table">
+    <tr><td>Cake Id</td>
+    <td>{{cake[0]}}
+        <input type="hidden" name="cakeid" value="{{cake[0]}}"/>
+    </td></tr>
+    <tr><td>Cake Name</td>
+        <td>{{cake[1]}}</td></tr>
+    <tr><td>Cake Price</td>
+            <td>{{cake[2]}}</td></tr>
+    <tr><td>Cake Description</td>
+    <td>{{cake[3]}}</td></tr>
+    <tr><td>Image</td>
+    <td><img src="{{ url_for('static', filename=cake[4])}}" class="img-responsive" style="width:300px;height:300px" alt="Image"></td></tr>
+    <tr><td>Select Quantity</td>
+        <td><select name="qty" class="form-control" style="width:100px" >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select></td></tr>
+    <tr><td><button class="button btn-success form-control"  type="submit" >Add ToCart</button></td>
+    <td></td></tr>
+</table>
+</form>
+{%endblock%}

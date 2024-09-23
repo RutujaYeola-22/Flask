@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Show All Categories</h1>
+    <hr/>
+    <a href="/AddCake">Add New Cake</a>
+    <table border="1">
+        <tr><th>Cake Id</th><th>Cake Name</th><th>Price</th><th>Description</th>
+        <th>Image</th><th>Quantity</th><th>Category</th><th>Edit</th><th>Delete</th></tr>
+        {%for cake in cakes%}
+        <tr>
+            <td>{{cake[0]}}</td>
+            <td>{{cake[1]}}</td>
+            <td>{{cake[2]}}</td>
+            <td>{{cake[3]}}</td>
+            <td><img src="{{ url_for('static', filename=cake[4])}}" height="100" width="100"/></td>
+            <td>{{cake[5]}}</td>
+            <td>{{cake[6]}}</td>
+            <td><a href="/edit_cake/{{cake[0]}}">Edit</a></td>
+            <th><a href="/delete_cake/{{cake[0]}}">Delete</a></th>
+        </tr>
+        {%endfor%}
+    </table>
+</center>
+</body>
+</html>

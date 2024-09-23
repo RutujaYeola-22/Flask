@@ -1,0 +1,59 @@
+{%extends "homepage.html"%}
+{%block content%}
+<script type="text/javascript">
+    function increment(txt_id)
+    {
+
+        txt = document.getElementById(txt_id);
+        if(parseInt(txt.value) <10 )
+        {
+            txt.value =  parseInt(txt.value)+1;
+        }        
+        
+    }
+    function decrement(txt_id)
+    {
+        txt = document.getElementById(txt_id);
+        if(parseInt(txt.value) >=2 )
+        {        
+            txt.value =  parseInt(txt.value)-1;
+        }
+        
+    }
+</script>
+
+<h1>Cart Details</h1>
+<hr/>
+
+<table class="table">
+    <tr><th>Cake Name</th><th>Image</th><th>Price</th><th>Quantity</th>
+    <th>Sub-Total</th></tr>
+    {%for cake in cakes%}
+    <form method="post">
+    <tr><td>{{cake[1]}}
+        <input type="hidden" name="cakeid" value="{{cake[0]}}"/>
+    </td>    
+    <td><img src="{{ url_for('static', filename=cake[2])}}" class="img-responsive" style="width:70px;height:50px" alt="Image"></td>
+    <td>{{cake[3]}}</td>
+    <td>
+        <button type="button" class="button btn-warning " style="width:20px" 
+        onclick='decrement("qty{{cake[0]}}")'>-</button>
+        <input type="text" name="qty" value="{{cake[4]}}" id="qty{{cake[0]}}" style="width:20px" readonly/>
+        <button type="button" class="button btn-warning " style="width:20px" onclick="increment('qty{{cake[0]}}')">+</button></td>
+    <td>{{cake[5]}}</td>
+    <td>
+        <button class="button btn-danger " name="action" value="delete" style="width:40px" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+
+        <button class="button btn-success " name="action" value="update" style="width:40px" type="submit"><span class="glyphicon glyphicon-pencil"></span></button>
+    </td>
+</tr>
+</form>
+    {%endfor%}        
+</table>
+<hr/>
+<h3>Total : {{session["total"]}}</h3>
+
+<a href="/MakePayment">
+<button  type="button" class="button btn-danger form-control">Proceed to Make Payment</button>
+</a>
+{%endblock%}

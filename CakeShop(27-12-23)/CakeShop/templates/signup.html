@@ -1,0 +1,18 @@
+{%extends "homepage.html"%}
+{%block content%}
+<h1>Sign Up</h1>
+{{message}}
+<hr/>
+<form method="post">
+<table class="table">
+    <tr><td>Login Id</td>
+    <td><input type="text" name="uname" class="form-control"/></td></tr>
+    <tr><td>Password</td>
+        <td><input type="text" name="pwd" class="form-control"/></td></tr>
+    <tr><td>EMail Id</td>
+            <td><input type="email" name="email" class="form-control"/></td></tr>
+        <tr><td><button type="submit" value="Sign Up" class="button btn-success form-control">Sign Up</button></td>
+<td></td></tr>
+</table>
+</form>
+{%endblock%}

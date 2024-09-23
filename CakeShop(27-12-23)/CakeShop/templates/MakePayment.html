@@ -1,0 +1,31 @@
+{%extends "homepage.html"%}
+{%block content%}
+<h1>Make Payment</h1>
+{%if message %}
+<div class="alert alert-danger">
+   
+    <strong>Error!{{message}}</strong> 
+    
+  </div>
+  {%endif%}
+<hr/>
+<form method="post">
+<table class="table">
+    <tr><td>Enter Name </td>
+    <td><input type="text" name="uname" class="form-control"/></td></tr>
+    <tr><td>Card No.</td>
+        <td><input type="text" name="cardno" class="form-control"/></td></tr>
+    <tr><td>CVV No.</td>
+            <td><input type="text" name="cvv" class="form-control"/></td></tr>
+    <tr><td>Expiry Date</td>
+         <td><input type="text" name="expiry" class="form-control"/></td></tr>
+    <tr><td>Total Amount</td>
+            <td><input type="text" name="amount" 
+                value="{{session['total']}}" readonly class="form-control"/></td></tr>
+           
+    
+    <tr><td><button type="submit" value="Sign Up" class="button btn-success form-control">Make Payment</button></td>
+<td></td></tr>
+</table>
+</form>
+{%endblock%}
